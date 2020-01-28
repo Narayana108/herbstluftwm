@@ -78,7 +78,8 @@
 * npm i tldr -g (simplified man pages)
 * pip install mdv --user (Terminal Markdown viewer)
 * pip install grip --user (Markdown viewer)
-
+* diff-so-fancy
+  - Add config once installed https://github.com/so-fancy/diff-so-fancy
 
 ## Preview
 ![alt text](wm-preview.png "herbstluftwm")
