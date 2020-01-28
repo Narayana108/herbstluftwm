@@ -10,6 +10,11 @@
 - bash script called `mon` to check system resources
 
 ## Installed apps
+* rust
+* go
+* nodejs
+* npm 
+* pip
 * brightnessctl (control screenbrightness from cli)
 * slack
 * weechat (terminal irc client) 
@@ -31,7 +36,7 @@
 	- mediainfo
 * qutebrowser (vim based web browser)
 * firefox (web browser)
-* Slock (Screen locker)
+* slock (Screen locker)
 * st (default terminal)
 * termite (terminal)
 * skim - (fuzzy finder written in rust)
@@ -42,7 +47,7 @@
 	- community/otf-font-awesome
 * gotop
 * htop
-* Zathura - (Zathura is a highly customizable and functional document viewer.)
+* zathura - (Zathura is a highly customizable and functional document viewer)
 	- zathura-pdf-mupdf-0.3.5-2
 	- zathura
 * audio
@@ -61,6 +66,7 @@
 * lsof
 * jq  (json text viewer)
 * youtube-dl
+* youtube-viewer
 * mpv slack(cil media player)
 * acpi (client for battery, power, and thermal readings)
 * imagemagick (cli image manipulation)
@@ -69,7 +75,6 @@
 * xclip (copy util)
 * calibre (ebook reader and converter)
    - contains `ebook-convert` cli tools
-* youtube-viewer
 * npm i tldr -g (simplified man pages)
 * pip install mdv --user (Terminal Markdown viewer)
 * pip install grip --user (Markdown viewer)
