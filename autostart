@@ -13,8 +13,10 @@ hc emit_hook reload
 
 #Set wallpaper to image
 feh --bg-center ~/.config/herbstluftwm/wallpaper.jpg
+
 #Set keyboard layout to colemakmod-dh
-kb-col
+bash ~/.config/BigBagKbdTrixXKB/setxkb.sh 4c us us
+
 
 TERMINAL=st
 

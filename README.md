@@ -1,4 +1,4 @@
-# Herbstluftwm
+[[#]] Herbstluftwm
 ### Minimal setup
 ### Config
 - pink borders
@@ -10,6 +10,7 @@
 - bash script called `mon` to check system resources
 
 ## Installed apps
+* archlinux-keyring
 * rust
 * go
 * nodejs
@@ -74,12 +75,19 @@
 * sxiv (image/gif viewer)
 * xclip (copy util)
 * calibre (ebook reader and converter)
+* libreoffice
    - contains `ebook-convert` cli tools
 * npm i tldr -g (simplified man pages)
 * pip install mdv --user (Terminal Markdown viewer)
 * pip install grip --user (Markdown viewer)
 * diff-so-fancy
   - Add config once installed https://github.com/so-fancy/diff-so-fancy
+* mpd
+* ncmpcpp
+  - https://computingforgeeks.com/how-to-configure-mpd-and-ncmpcpp-on-linux/
+    (configure mpd and ncmpcpp)
+* redshift (eye protection)
+  - https://www.maketecheasier.com/protect-eyes-redshift-linux/
 
 ## Preview
 ![alt text](wm-preview.png "herbstluftwm")
