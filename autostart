@@ -12,7 +12,12 @@ hc emit_hook reload
 #xsetroot -solid '#5A8E3A'
 
 #Set wallpaper to image
-feh --bg-center ~/.config/herbstluftwm/wallpaper.jpg
+
+#launching polybar
+~/.config/polybar/launch.sh
+#Launch Apps
+mpd & 
+feh --bg-center ~/.config/herbstluftwm/wallpaper.jpg # Set wallpaper
 
 #Set keyboard layout to colemakmod-dh
 bash ~/.config/BigBagKbdTrixXKB/setxkb.sh 4c us us
@@ -36,6 +41,7 @@ hc keybind $Mod-d spawn dmenu_run -b
 
 # apps
 hc keybind $Mod-q spawn qutebrowser
+hc keybind $Mod-w spawn firefox
 
 # basic movement
 # focusing clients
@@ -79,9 +85,21 @@ hc keybind $Mod-Control-Right   resize right +$resizestep
 # Play / Pause media key
 #hc keybind XF86AudioPlay spawn mpc toggle
 # Volume setting media key
-hc keybind XF86AudioRaiseVolume spawn pulsemixer --get-volume --change-volume +5
-hc keybind XF86AudioLowerVolume spawn pulsemixer --get-volume --change-volume -5
-hc keybind XF86AudioMute        spawn pulsemixer --id sink-0 --toggle-mute
+#hc keybind XF86AudioRaiseVolume spawn pulsemixer --get-volume --change-volume +5
+#hc keybind XF86AudioLowerVolume spawn pulsemixer --get-volume --change-volume -5
+#hc keybind XF86AudioMute        spawn pulsemixer --id sink-0 --toggle-mute
+
+## volume control
+hc keybind XF86AudioRaiseVolume spawn amixer -D pulse sset Master '5%+'
+hc keybind XF86AudioLowerVolume spawn amixer -D pulse sset Master '5%-'
+hc keybind XF86AudioMute spawn amixer set Master toggle
+
+## music control
+hc keybind XF86AudioNext spawn mpc next
+hc keybind XF86AudioPrev spawn mpc prev
+hc keybind XF86AudioPlay spawn mpc toggle
+hc keybind XF86AudioStop spawn mpc stop
+
 # Brightness
 hc keybind XF86MonBrightnessUp   spawn sudo brightnessctl s 5000+
 hc keybind XF86MonBrightnessDown spawn sudo brightnessctl s 5000-
@@ -202,3 +220,27 @@ for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
     # start it on each monitor
     "$panel" $monitor &
 done
+
+#Dualmonitor setup
+# Find out your monitor name with xrandr or arandr (save and you get this line)
+#xrandr --output VGA-1 --primary --mode 1360x768 --pos 0x0 --rotate normal
+#xrandr --output DP2 --primary --mode 1920x1080 --rate 60.00 --output LVDS1 --off &
+#xrandr --output LVDS1 --mode 1366x768 --output DP3 --mode 1920x1080 --right-of LVDS1
+#xrandr --output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+ 
+#Dualmonitor setup
+# hc detect_monitors
+#hc set_monitors 1920x1080+0+0 1920x1080+1920+0
+ 
+#room for polybar on both monitors
+#single polybar at top
+hc pad 2 30
+#second polybar at bottom
+#hc pad 0 30 0 30 0
+#single polybar at top
+hc pad 1 30
+#second polybar at bottom
+#hc pad 1 30 0 30 0
+ 
+#launching polybar
+~/.config/herbstluftwm/launch.sh

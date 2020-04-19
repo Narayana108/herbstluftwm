@@ -5,7 +5,6 @@
 - feh for background
 - fn keys for audio and screen brightness keys
 - shortcut keys
-
 ### External
 - bash script called `mon` to check system resources
 
@@ -24,6 +23,7 @@
 	- https://github.com/junegunn/vim-plug
   - once nvim has been installed and configured open nvim
   - and run `:checkhealth`
+  - https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim
 * ZSH plugins
 	- https://github.com/shibumi/hikari-zsh
 	- https://github.com/zdharma/fast-syntax-highlighting
@@ -88,6 +88,44 @@
     (configure mpd and ncmpcpp)
 * redshift (eye protection)
   - https://www.maketecheasier.com/protect-eyes-redshift-linux/
+* simple-mtpfs (mount andriod device)
+* nvidia-dkms nvidia-lts nvidia-settings nvidia-utils lib32-nvidia-utils (graphics driver)
+* optimus-manager [aur](switch between onboard graphics and gpu)
+* lightdm (display manager)
+* lightdm-slick-greeter [aur](lightdm greeter)
+* i7z (CPU reporting tool)
+* cpupower (CPU frequency scaling)
+* thermald [aur] (prevent the overheating of platforms)(thermald.service, which should be started and enabled)
+* acpid (delivering ACPI events)
+* powertop (monitor processes and show which of them are utilizing the CPU )
+* 3.) Run powertop install the "powertop" package and run powertop as root. this tool well make recommendations on what power settings to enable on you're system it will even enable them for you temporally untill next boot and it will give you an idea how cool you can get you're system. After reading up and trying many options I've ended up getting around 5-6 hours of battery life and running almost dead cold X3
+* i8kutils[aur](manual fan control)
+* crystal (programming language)
+* shards (crystal package manager)
+* gopass (cli password manager)
+* adb (andriod flashing tool)
+
+# Extra
+## Set qutebrowser as default
+`xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop`
+
+## Switch off bluetooth from starting automatically
+`systemctl status bluetooth.target`
+
+## NVIM
+```
+once nvim has been installed and configured open nvim
+and run :checkhealth
+https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim
+```
+
+## Arch linux switching kernals with systemd boot
+- https://bbs.archlinux.org/viewtopic.php?id=235116
+ 
+## Arch linux dell inspiron nvme - install guide
+- https://gist.github.com/binaerbaum/535884a7f5b8a8697557
+
 
 ## Preview
 ![alt text](wm-preview.png "herbstluftwm")
+
