@@ -10,11 +10,11 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # Launch bars
 #polybar bottom &
 #polybar main &
-polybar -c ~/.config/herbstluftwm/polybar top &
+polybar -c ~/.config/herbstluftwm/polybar.ini top &
 # polybar bar2 &
 
 echo "Bars launched..."
 #this line of code will pad EACH monitor 32 pixels
-hc pad $monitor 28 0 0 0
+hc pad $monitor 14 0 0 0
 #this line of code will pad monitor 0 32 pixels
 #hc pad 0 32 0 0 0

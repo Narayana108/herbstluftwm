@@ -45,7 +45,27 @@
 * dmenu (minimal menu to search and open apps)
 * rg - (blazing fast grep alternative, written in rust)
 * Fonts
-	- community/otf-font-awesome
+  - community/ttf-font-awesome
+  - aur/ttf-font-awesome-4
+  - community/awesome-terminal-fonts
+  - ttf-material-design-icons-git
+  - noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
+  - aur/nerd-fonts-complete (I think this contains everything)
+    - ```sh
+        $ cd ~/Downloads (you need ~4GB of space to build)
+        $ yay --getpkgbuild nerd-fonts-complete
+        $ cd nerd-fonts-complete
+        $ wget -O nerd-fonts-2.1.0.tar.gz https://github.com/ryanoasis/nerd-fonts/archive/v2.1.0.tar.gz
+        $ makepkg -sci BUILDDIR=.
+      ```
+  - aur/sanskrit-fonts
+  - aur - ttf-ancient-fonts
+  - aur - ttf-fira-code
+  - aur - ttf-inconsolata
+  - aur - ttf-google-fonts-git ?
+  - adobe-source-han-sans-otc-fonts ?
+  - adobe-source-han-serif-otc-fonts ?
+  - aur/ttf-tw ?
 * gotop
 * htop
 * zathura - (Zathura is a highly customizable and functional document viewer)
@@ -104,6 +124,8 @@
 * shards (crystal package manager)
 * gopass (cli password manager)
 * adb (andriod flashing tool)
+* zenity (vim colour picker dependecies)
+* gucharmap (gnome character map, view fonts and icons)
 
 # Extra
 ## Set qutebrowser as default

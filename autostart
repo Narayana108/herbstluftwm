@@ -13,8 +13,7 @@ hc emit_hook reload
 
 #Set wallpaper to image
 
-#launching polybar
-~/.config/polybar/launch.sh
+
 #Launch Apps
 mpd & 
 feh --bg-center ~/.config/herbstluftwm/wallpaper.jpg # Set wallpaper
@@ -234,11 +233,11 @@ done
  
 #room for polybar on both monitors
 #single polybar at top
-hc pad 2 30
+hc pad 2 14
 #second polybar at bottom
 #hc pad 0 30 0 30 0
 #single polybar at top
-hc pad 1 30
+hc pad 1 14
 #second polybar at bottom
 #hc pad 1 30 0 30 0
  
