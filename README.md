@@ -147,6 +147,92 @@ https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim
 ## Arch linux dell inspiron nvme - install guide
 - https://gist.github.com/binaerbaum/535884a7f5b8a8697557
 
+ 
+# Powertop 
+## Automatically tune power saving settings
+https://wiki.archlinux.org/index.php/Powertop#Usage
+
+`sudo powertop --auto-tune`
+You can use the `--auto-tune` feature from powertop which sets all tunable options to their GOOD setting. This can be combined with systemd service to have the tunables set on boot. Remember to enable/start the service.
+
+`/etc/systemd/system/powertop.service`
+```sh
+[Unit]
+Description=Powertop tunings
+
+[Service]
+Type=exec
+ExecStart=/usr/bin/powertop --auto-tune
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
+```
+
+## Manually tune power saving settings
+https://dabase.com/blog/2013/Systemd_powertop_tunables/
+https://wiki.archlinux.org/index.php/Powertop
+https://wiki.archlinux.org/index.php/Power_management#Power_saving
+
+
+1. Open powertop and press `tab` and look at the tunables
+```sh
+sudo powertop
+```
+
+2. Save tunables to html
+```sh
+sudo powertop -r power_report.html
+```
+
+3. Extract the tunable settings from the html
+```sh
+awk -F '</?td ?>' '/tune/ { print $4 }' power_report.html > tunables.txt
+```
+
+4. Remove any new lines from `tunables.txt`
+
+5. Save the following code as `rewrite.sh` scipt in the same dir
+```sh
+cleanup() {
+    echo $1 | tr -d "';"
+}
+while read _ arg _ dev
+do
+    echo w $(cleanup $dev) - - - - $(cleanup $arg)
+done < tunables.txt
+```
+
+6. Convert the tunables into systemd format config
+
+```sh
+bash rewrite.sh > /tmp/power-savings.conf
+```
+
+6. Open the file `/tmp/power-savings.conf` and make sure it looks ok
+
+It should look something like this now:
+```sh
+w /sys/class/scsi_host/host0/link_power_management_policy - - - - min_power
+w /proc/sys/kernel/nmi_watchdog - - - - 0
+w /proc/sys/vm/dirty_writeback_centisecs - - - - 1500
+w /sys/module/snd_hda_intel/parameters/power_save - - - - 1
+w /sys/bus/usb/devices/3-1/power/control - - - - auto
+w /sys/bus/pci/devices/0000:0e:00.0/power/control - - - - auto
+```
+
+7. Move it to the right place
+```sh
+sudo mv /tmp/power-savings.conf /etc/tmpfiles.d/power-savings.conf
+```
+
+8. Reboot
+
+9. Chech that there are no bad rules
+```sh
+  sudo powertop
+```
+
 
 ## Preview
 ![alt text](wm-preview.png "herbstluftwm")
