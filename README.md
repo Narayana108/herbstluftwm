@@ -1,12 +1,5 @@
-[[#]] Herbstluftwm
+# Herbstluftwm
 ### Minimal setup
-### Config
-- pink borders
-- feh for background
-- fn keys for audio and screen brightness keys
-- shortcut keys
-### External
-- bash script called `mon` to check system resources
 
 ## Installed apps
 * archlinux-keyring
