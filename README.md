@@ -113,7 +113,35 @@
 * thermald [aur] (prevent the overheating of platforms)(thermald.service, which should be started and enabled)
 * acpid (delivering ACPI events)
 * powertop (monitor processes and show which of them are utilizing the CPU )
-* 3.) Run powertop install the "powertop" package and run powertop as root. this tool well make recommendations on what power settings to enable on you're system it will even enable them for you temporally untill next boot and it will give you an idea how cool you can get you're system. After reading up and trying many options I've ended up getting around 5-6 hours of battery life and running almost dead cold X3
+  - Automatically tune power saving settings
+    https://wiki.archlinux.org/index.php/Powertop#Usage
+
+    Use the `--auto-tune` feature from powertop which sets all tunable options to their GOOD setting. This can be combined with systemd service to have the tunables set on boot. 
+
+    1. sudoedit `/etc/systemd/system/powertop.service`
+    ```sh
+    [Unit]
+    Description=Powertop tunings
+
+    [Service]
+    Type=exec
+    ExecStart=/usr/bin/powertop --auto-tune
+    RemainAfterExit=true
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+    1. Chech the discharge rate and press `tab` and look at the `Tunables`. 
+    ```sh
+    sudo powertop
+    ```
+
+    2. Start and enable powertop
+    ```sh
+     sudo systemctl start powertop.service
+     sudo systemctl enable powertop.service
+    ```
 * i8kutils[aur](manual fan control)
 * crystal (programming language)
 * shards (crystal package manager)
@@ -143,40 +171,6 @@ https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim
  
 ## Arch linux dell inspiron nvme - install guide
 - https://gist.github.com/binaerbaum/535884a7f5b8a8697557
-
- 
-# Powertop 
-## Automatically tune power saving settings
-https://wiki.archlinux.org/index.php/Powertop#Usage
-
-`sudo powertop --auto-tune`
-You can use the `--auto-tune` feature from powertop which sets all tunable options to their GOOD setting. This can be combined with systemd service to have the tunables set on boot. 
-
-1. sudoedit `/etc/systemd/system/powertop.service`
-```sh
-[Unit]
-Description=Powertop tunings
-
-[Service]
-Type=exec
-ExecStart=/usr/bin/powertop --auto-tune
-RemainAfterExit=true
-
-[Install]
-WantedBy=multi-user.target
-```
-
-1. Chech the discharge rate and press `tab` and look at the `Tunables`. 
-```sh
-sudo powertop
-```
-
-2. Start and enable powertop
-```sh
- sudo systemctl start powertop.service
- sudo systemctl enable powertop.service
-```
-
 
 ## Preview
 ![alt text](wm-preview.png "herbstluftwm")
