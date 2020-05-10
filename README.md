@@ -150,30 +150,9 @@ https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim
 https://wiki.archlinux.org/index.php/Powertop#Usage
 
 `sudo powertop --auto-tune`
-You can use the `--auto-tune` feature from powertop which sets all tunable options to their GOOD setting. This can be combined with systemd service to have the tunables set on boot. Remember to enable/start the service.
+You can use the `--auto-tune` feature from powertop which sets all tunable options to their GOOD setting. This can be combined with systemd service to have the tunables set on boot. 
 
-`/etc/systemd/system/powertop.service`
-```sh
-[Unit]
-Description=Powertop tunings
-
-[Service]
-Type=exec
-ExecStart=/usr/bin/powertop --auto-tune
-RemainAfterExit=true
-
-[Install]
-WantedBy=multi-user.target
-```
-
-# Powertop 
-## Automatically tune power saving settings
-https://wiki.archlinux.org/index.php/Powertop#Usage
-
-`sudo powertop --auto-tune`
-You can use the `--auto-tune` feature from powertop which sets all tunable options to their GOOD setting. This can be combined with systemd service to have the tunables set on boot. Remember to enable/start the service.
-
-`/etc/systemd/system/powertop.service`
+1. sudoedit `/etc/systemd/system/powertop.service`
 ```sh
 [Unit]
 Description=Powertop tunings
