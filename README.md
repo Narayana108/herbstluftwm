@@ -122,6 +122,7 @@
     ```
     
     Use the `--auto-tune` feature from powertop which sets all tunable options to their GOOD setting. This can be combined with systemd service to have the tunables set on boot. 
+    
     2. sudoedit `/etc/systemd/system/powertop.service`
     ```sh
     [Unit]
