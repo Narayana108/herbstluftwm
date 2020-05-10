@@ -116,9 +116,13 @@
   - Automatically tune power saving settings
     https://wiki.archlinux.org/index.php/Powertop#Usage
 
+    1. Chech the discharge rate and press `tab` and look at the `Tunables`. 
+    ```sh
+    sudo powertop
+    ```
+    
     Use the `--auto-tune` feature from powertop which sets all tunable options to their GOOD setting. This can be combined with systemd service to have the tunables set on boot. 
-
-    1. sudoedit `/etc/systemd/system/powertop.service`
+    2. sudoedit `/etc/systemd/system/powertop.service`
     ```sh
     [Unit]
     Description=Powertop tunings
@@ -132,12 +136,7 @@
     WantedBy=multi-user.target
     ```
 
-    1. Chech the discharge rate and press `tab` and look at the `Tunables`. 
-    ```sh
-    sudo powertop
-    ```
-
-    2. Start and enable powertop
+    3. Start and enable powertop
     ```sh
      sudo systemctl start powertop.service
      sudo systemctl enable powertop.service
