@@ -59,6 +59,7 @@
   - adobe-source-han-sans-otc-fonts ?
   - adobe-source-han-serif-otc-fonts ?
   - aur/ttf-tw ?
+  - search for installed fonts with: `fc-list | rg -i devanagari`
 * gotop
 * htop
 * zathura - (Zathura is a highly customizable and functional document viewer)
@@ -102,7 +103,7 @@
 * redshift (eye protection)
   - https://www.maketecheasier.com/protect-eyes-redshift-linux/
 * simple-mtpfs (mount andriod device)
-* nvidia-dkms nvidia-lts nvidia-settings nvidia-utils lib32-nvidia-utils (graphics driver)
+* nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader (Nvidia graphics drivers)
 * optimus-manager [aur](switch between onboard graphics and gpu)
 * lightdm (display manager)
 * lightdm-slick-greeter [aur](lightdm greeter)
@@ -119,6 +120,8 @@
 * adb (andriod flashing tool)
 * zenity (vim colour picker dependecies)
 * gucharmap (gnome character map, view fonts and icons)
+* cava (Console-based Audio Visualize)
+* fasd (quick access to files and directories for POSIX shells)
 
 # Extra
 ## Set qutebrowser as default
@@ -175,12 +178,12 @@ sudo powertop
 
 2. Save tunables to html
 ```sh
-sudo powertop -r power_report.html
+sudo powertop -r
 ```
 
 3. Extract the tunable settings from the html
 ```sh
-awk -F '</?td ?>' '/tune/ { print $4 }' power_report.html > tunables.txt
+awk -F '</?td ?>' '/tune/ { print $4 }' powertop.html > tunables.txt
 ```
 
 4. Remove any new lines from `tunables.txt`

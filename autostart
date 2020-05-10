@@ -11,8 +11,8 @@ hc emit_hook reload
 #Set wallpaper to solid colour
 #xsetroot -solid '#5A8E3A'
 
-#Set wallpaper to image
-
+# Switch off bluetooth (Bug)
+sudo systemctl stop bluetooth.target
 
 #Launch Apps
 mpd & 
@@ -82,12 +82,6 @@ hc keybind $Mod-Control-Up      resize up +$resizestep
 hc keybind $Mod-Control-Right   resize right +$resizestep
 
 # Play / Pause media key
-#hc keybind XF86AudioPlay spawn mpc toggle
-# Volume setting media key
-#hc keybind XF86AudioRaiseVolume spawn pulsemixer --get-volume --change-volume +5
-#hc keybind XF86AudioLowerVolume spawn pulsemixer --get-volume --change-volume -5
-#hc keybind XF86AudioMute        spawn pulsemixer --id sink-0 --toggle-mute
-
 ## volume control
 hc keybind XF86AudioRaiseVolume spawn amixer -D pulse sset Master '5%+'
 hc keybind XF86AudioLowerVolume spawn amixer -D pulse sset Master '5%-'
@@ -219,6 +213,9 @@ for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
     # start it on each monitor
     "$panel" $monitor &
 done
+
+# Glava
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_DESKTOP' manage=off
 
 #Dualmonitor setup
 # Find out your monitor name with xrandr or arandr (save and you get this line)
