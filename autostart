@@ -39,8 +39,9 @@ hc keybind $Mod-Return spawn ${TERMINAL:-xterm} # use your $TERMINAL with xterm 
 hc keybind $Mod-d spawn dmenu_run -b
 
 # apps
-hc keybind $Mod-q spawn qutebrowser
+hc keybind $Mod-q spawn brave
 hc keybind $Mod-w spawn firefox
+hc keybind $Mod-t spawn thunar
 
 # basic movement
 # focusing clients
