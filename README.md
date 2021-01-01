@@ -2,7 +2,24 @@
 ## Preview
 ![alt text](wm-preview.png "herbstluftwm")
 
+```sh
+pacstrap /mnt bash-completion nvim iwd xorg base base-devel linux linux-firmware lvm2 dhcpcd efibootmgr intel-ucode xf86-video-intel vi dhclient
+```
+
+### hebstlutwm:
+```sh
+cp /etc/X11/xinit/xinitrc ~/.xinitrc
+e ~/.xinitrc
+exec herbstluftwm
+
+polybar
+st
+```
+
+
+
 ## Installed apps
+* git
 * archlinux-keyring
 * rust
 * go
@@ -32,7 +49,7 @@
 	- mediainfo
 * qutebrowser (vim based web browser)
 * firefox (web browser)
-* brave (web browser)
+* brave[aur] (web browser)
 * slock (Screen locker)
 * st (default terminal)
 * termite (terminal)
@@ -145,7 +162,7 @@
      sudo systemctl start powertop.service
      sudo systemctl enable powertop.service
     ```
-* i8kutils[aur](manual fan control)
+* i8kutils[aur] (manual fan control)
 * crystal (programming language)
 * shards (crystal package manager)
 * gopass (cli password manager)
@@ -163,13 +180,20 @@
 
     - `sudo pacman -S wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader`
 * bind-tools (dig)
-* vscodium-bin [aur] - Free version of Visual Studio Code
+* vscodium-bin [aur] (Free version of Visual Studio Code)
 * fzf (Fuzzy file finder, used in vim)
-* libxft-bgra[aur] - Helps ST render emojis(ST crashes without this)
+* libxft-bgra[aur] (Helps ST render emojis, ST crashes without this)
+* keybase-bin[aur] (encrypted chat and git app) 
+* kubectx (Switch backand forth bewteen kubernetes clusters)
+* ksd[aur] (decode k8s secrets)
+* stern[aur] (View multiple k8s logs)
+* popeye[aur] (k8s resource auditer)
 
 # Extra
 ## Set qutebrowser as default
 `xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop`
+`xdg-settings set default-web-browser brave-bin.desktop`
+
 
 ## Switch off bluetooth from starting automatically
 `systemctl status bluetooth.target`
